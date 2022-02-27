@@ -1,17 +1,9 @@
-import React from 'react';
-import {loadingGif} from './loadingGif';
+import React from "react";
+import { loadingGif } from "./loadingGif";
 import Character from "../Character";
 
-const Error = () => {
-  const [{
-    images: {
-      original: {
-        url = ''
-      } = {}
-    } = {}
-  }] = loadingGif
+const [{ images: { original: { url = "" } = {} } = {} }] = loadingGif;
 
-  return <Character isLoading data={{ image: url }} />
-};
+const Loading = () => <Character isLoading data={{ image: url }} />;
 
-export default Error
+export default Loading;

@@ -1,17 +1,9 @@
-import React from 'react';
-import {errorGif} from './errorGif';
+import React from "react";
+import { errorGif } from "./errorGif";
 import Character from "../Character";
 
-const Error = () => {
-  const [{
-    images: {
-      original: {
-        url = ''
-      } = {}
-    } = {}
-  }] = errorGif
+const [{ images: { original: { url = "" } = {} } = {} }] = errorGif;
 
-  return <Character hasError data={{ image: url }} />
-};
+const Error = () => <Character hasError data={{ image: url }} />;
 
-export default Error
+export default Error;

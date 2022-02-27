@@ -1,24 +1,18 @@
-import {config} from "./config";
+import { config } from "./config";
 
 export function getBaseRequestParameters() {
-  const API_URL = config.API_URL
+  const API_URL = config.API_URL;
   return {
-    API_URL
-  }
+    API_URL,
+  };
 }
 
-export function makeRequest (methods: string, query: string) {
-  const { API_URL } = getBaseRequestParameters()
-  const URL = `${API_URL}${methods}/?${query}`
+export function makeRequest(methods: string, query: string) {
+  const { API_URL } = getBaseRequestParameters();
+  const URL = `${API_URL}${methods}/?${query}`;
 
   return fetch(URL)
-    .then(response => {
-      return response.json()
-    })
-    .then(response => {
-      return response
-    })
-    .catch(error => {
-      return error
-    })
+    .then((response) => response.json())
+    .then((response) => response)
+    .catch((error) => error);
 }

@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { FC } from "react";
 
 interface ITextElementProps {
-  name: string,
-  extraClass?: string
+  name: string;
+  extraClass?: string;
 }
 
-const Index = (props: ITextElementProps) => {
-  const { name, extraClass = '' } = props
+const Index: FC<ITextElementProps> = (props) => {
+  const { name, extraClass = "" } = props;
 
-  return (
-    name
-      ? <span className={`link-light d-block ${extraClass}`}>{name}</span>
-      : null
-  );
+  return name ? (
+    <span className={`link-light d-block ${extraClass}`}>{name}</span>
+  ) : null;
 };
 
-export default Index
+export default Index;
