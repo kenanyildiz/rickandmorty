@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     replaceHistoryState(`page=${page}`)
-    // eslint-disable react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSetPage = (newPage: number) => {

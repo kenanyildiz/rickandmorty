@@ -12,8 +12,7 @@ const theme: ITheme = {
   unknown: "bg-secondary",
 };
 
-const Index = (props: IEpisodes) => {
-  const { episode, status } = props;
+const Index = ({ episode, status }: IEpisodes) => {
   const badgeClass: string = (theme as any)[status] || "bg-dark";
 
   if (!episode.length) {
