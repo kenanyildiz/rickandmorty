@@ -1,50 +1,33 @@
-import React, { FC, useEffect } from "react";
-import { useState } from "react";
+import React, { useMemo } from "react";
 import { Pagination } from "react-bootstrap";
 import { IInfo } from "../Interfaces";
 
 interface IProps {
   info: IInfo;
-  active: number;
-  clearCharacters(): void;
-  onCharactersFetchRequested(page: number): void;
+  page: number;
+  setPage(page: number): void;
 }
 
-const Paging: FC<IProps> = (props) => {
-  const { info: { pages = 0 } = {} } = props;
+const Paging = (props: IProps) => {
+  const { info: { pages = 0 } = {}, page, setPage } = props
 
-  const [active, setActive] = useState<number>(props.active);
-
-  useEffect(() => setActive(props.active), [props.active]);
-
-  function onCharactersFetchRequested(page: number): void {
-    setActive(page);
-    props.clearCharacters();
-    props.onCharactersFetchRequested(page);
-  }
-
-  function getPaginationTmp(pages: number) {
-    const items = [];
-    for (let number = 1; number <= pages; number++) {
-      items.push(
-        <Pagination.Item
-          active={number === active}
-          activeLabel=""
-          className="d-inline-block"
-          key={number}
-          onClick={() => onCharactersFetchRequested(number)}
-        >
-          {number}
-        </Pagination.Item>
-      );
-    }
-
-    return items;
-  }
+  const data = useMemo(() => Array.from({ length: pages }, (_v, i) => i+1), [pages])
 
   return (
     <Pagination className="d-block" size="sm">
-      {getPaginationTmp(pages)}
+      {
+        data.map((number) => {
+          return <Pagination.Item
+            active={number === page}
+            activeLabel=""
+            className="d-inline-block"
+            key={number}
+            onClick={() => setPage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        })
+      }
     </Pagination>
   );
 };

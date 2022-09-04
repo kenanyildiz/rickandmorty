@@ -3,12 +3,10 @@ import Paging from "./index";
 
 describe("pagingButton", () => {
   const info = { count: 1, pages: 3 };
-  const dummyFn = () => {};
   const commonOptions = {
     info,
-    active: 1,
-    clearCharacters: dummyFn,
-    onCharactersFetchRequested: dummyFn,
+    page: 1,
+    setPage: jest.fn(),
   };
 
   it("checkRender", () => {

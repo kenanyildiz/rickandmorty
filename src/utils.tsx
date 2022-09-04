@@ -16,3 +16,12 @@ export function makeRequest(methods: string, query: string) {
     .then((response) => response)
     .catch((error) => error);
 }
+
+export function getPageParams(): number {
+  const page = new URLSearchParams(window.location.search).get("page");
+  return Number(page) || 1;
+}
+
+export async function fetchCharacters(query: string) {
+  return makeRequest("character", query);
+}

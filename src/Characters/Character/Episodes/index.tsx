@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { ITheme } from "../../../Interfaces";
 
 interface IEpisodes {
@@ -12,11 +12,15 @@ const theme: ITheme = {
   unknown: "bg-secondary",
 };
 
-const Index: FC<IEpisodes> = (props) => {
+const Index = (props: IEpisodes) => {
   const { episode, status } = props;
   const badgeClass: string = (theme as any)[status] || "bg-dark";
 
-  return episode.length ? (
+  if (!episode.length) {
+    return null
+  }
+
+  return  (
     <div className="card-text">
       <>
         <h5 className="card-title">Featured on Episodes</h5>
@@ -32,7 +36,7 @@ const Index: FC<IEpisodes> = (props) => {
         })}
       </>
     </div>
-  ) : null;
+  )
 };
 
 export default Index;

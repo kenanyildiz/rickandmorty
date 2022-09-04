@@ -1,18 +1,15 @@
-import React, { FC } from "react";
+import React from "react";
 
 interface ITitleProps {
   name: string;
   species: string;
 }
 
-const Index: FC<ITitleProps> = (props) => {
-  const { name = "", species = "" } = props;
-
-  return name && species ? (
-    <h5 className="card-title">
-      {name} - {species}
-    </h5>
-  ) : null;
+const Index = ({ name = "", species = "" }: ITitleProps) => {
+  if (!name || !species) {
+    return null
+  }
+  return <h5 className="card-title">{name} - {species}</h5>
 };
 
 export default Index;

@@ -1,8 +1,3 @@
-export interface IError {
-  state: boolean;
-  msg: string;
-}
-
 export interface IInfo {
   pages: number;
   count: number;

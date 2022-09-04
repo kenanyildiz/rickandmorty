@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import Episodes from "./Episodes/index";
 import TextElement from "./TextElement/index";
 import Title from "./Title/index";
@@ -11,7 +11,7 @@ interface ICharacterProps {
   isNotFound?: boolean;
 }
 
-const Character: FC<ICharacterProps> = (props) => {
+const Character = (props: ICharacterProps) => {
   const {
     hasError = false,
     isLoading = false,

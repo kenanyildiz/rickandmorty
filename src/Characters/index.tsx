@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import Character from "./Character/index";
 import { ICharacter } from "../Interfaces";
 
@@ -6,7 +6,7 @@ interface ICharacters {
   characters: ICharacter[];
 }
 
-const Characters: FC<ICharacters> = (props) => {
+const Characters = (props: ICharacters) => {
   const { characters = [] } = props;
 
   return (
