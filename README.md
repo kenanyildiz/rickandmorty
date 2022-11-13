@@ -6,8 +6,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-**Run Application with Docker Composer or Yarn**
-### `npm run dev` or `yarn start`
+**Install & Run Application with Docker Composer**.\
+*Open Docker before you run the below command*
+### `yarn run install-and-start`
+
+Installs the application.\
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+**Run Application with Yarn**
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
